@@ -1,0 +1,23 @@
+version: "3.1"
+services:
+    app-webserver:
+      image: nginx:alpine
+      container_name: app-webserver
+      restart: always
+      working_dir: /application
+      volumes:
+          - ../:/application
+          - ../sites/:/etc/nginx/conf.d
+          - ../storage/logs/:/var/log/nginx
+      ports:
+       - "80:80"
+
+    app-php-fpm:
+      build: phpdocker/php-fpm
+      container_name: app-php-fpm
+      restart: always
+      working_dir: /application
+      volumes:
+        - ../:/application
+        - ../supervisor/:/etc/supervisor/conf.d
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini

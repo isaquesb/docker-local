@@ -1,0 +1,15 @@
+/.idea
+/.vagrant
+.env
+supervisord.log
+apps/*
+!apps/default
+database/mysql57
+/storage/logs/*.log
+/storage/logs/*.pid
+/sites/enabled/*.conf
+!/sites/enabled/default.conf
+/keys/*/*.crt
+/keys/*/*.pem
+/supervisor/services/*.conf
+!/supervisor/services/(php-fpm|supervisord).conf
