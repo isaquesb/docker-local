@@ -1,0 +1,10 @@
+{
+    "name": "isaquesb/docker-app",
+    "type": "library",
+    "description": "Server dependencies",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2",
+        "yourivw/leclient": "*"
+    }
+}

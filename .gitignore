@@ -13,3 +13,6 @@ database/mysql57
 /keys/*/*.pem
 /supervisor/services/*.conf
 !/supervisor/services/(php-fpm|supervisord).conf
+encrypt/vendor
+/vendor
+composer.lock

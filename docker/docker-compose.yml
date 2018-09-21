@@ -7,6 +7,7 @@ services:
       working_dir: /application
       volumes:
           - ../:/application
+          - ../encrypt/keys/:/etc/keys
           - ../sites/:/etc/nginx/conf.d
           - ../storage/logs/:/var/log/nginx
       ports:
