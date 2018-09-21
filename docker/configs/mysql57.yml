@@ -7,7 +7,7 @@ services:
       restart: always
       working_dir: /application
       volumes:
-        - ../database/mysql57/:/var/lib/mysql
+        - ../../database/mysql57/:/var/lib/mysql
       environment:
         - MYSQL_ROOT_PASSWORD=123456
         - MYSQL_DATABASE=app
