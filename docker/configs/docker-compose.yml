@@ -12,6 +12,7 @@ services:
           - ../../storage/logs/:/var/log/nginx
       ports:
        - "80:80"
+       - "443:443"
 
     app-php-fpm:
       build: ../phpdocker/php-fpm
