@@ -30,18 +30,18 @@ foreach ($directory as $fileInfo) {
     foreach ($config as $basename => $map) {
 
         $domains = array_keys($map);
-        $client = new LEClient($email, false, LECLient::LOG_STATUS);
+        $client = new \LEClient\LEClient($email, false, LEClient\LEClient::LOG_STATUS);
 
         $order = $client->getOrCreateOrder($basename, $domains);
 
         if (!$order->allAuthorizationsValid()) {
-            $pending = $order->getPendingAuthorizations(LEOrder::CHALLENGE_TYPE_HTTP);
+            $pending = $order->getPendingAuthorizations(\LEClient\LEOrder::CHALLENGE_TYPE_HTTP);
             if (!empty($pending)) {
                 foreach ($pending as $challenge) {
                     $folder = $map[$challenge['identifier']] . '/.well-known/acme-challenge/';
                     if(!file_exists($folder)) mkdir($folder, 0777, true);
                     file_put_contents($folder . $challenge['filename'], $challenge['content']);
-                    $order->verifyPendingOrderAuthorization($challenge['identifier'], LEOrder::CHALLENGE_TYPE_HTTP);
+                    $order->verifyPendingOrderAuthorization($challenge['identifier'], \LEClient\LEOrder::CHALLENGE_TYPE_HTTP);
                 }
             }
         }
