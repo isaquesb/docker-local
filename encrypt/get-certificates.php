@@ -30,7 +30,13 @@ foreach ($directory as $fileInfo) {
     foreach ($config as $basename => $map) {
 
         $domains = array_keys($map);
-        $client = new \LEClient\LEClient($email, false, LEClient\LEClient::LOG_STATUS);
+        $client = new \LEClient\LEClient(
+            $email,
+            false,
+            LEClient\LEClient::LOG_STATUS,
+            __DIR__ . '/keys/' . $basename . '/',
+            __DIR__ . '/keys/__account/'
+        );
 
         $order = $client->getOrCreateOrder($basename, $domains);
 
