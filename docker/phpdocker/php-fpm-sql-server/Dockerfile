@@ -18,6 +18,9 @@ RUN pecl install pdo_sqlsrv
 RUN bash -c "echo extension=sqlsrv.so" > "/etc/php/7.2/fpm/conf.d/sqlsrv.ini"
 RUN bash -c "echo extension=pdo_sqlsrv.so" > "/etc/php/7.2/fpm/conf.d/pdo_sqlsrv.ini"
 
+RUN bash -c "echo extension=sqlsrv.so" > "/etc/php/7.2/cli/conf.d/sqlsrv.ini"
+RUN bash -c "echo extension=pdo_sqlsrv.so" > "/etc/php/7.2/cli/conf.d/pdo_sqlsrv.ini"
+
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN ["chmod", "+x", "/usr/bin/entrypoint.sh"]
 
