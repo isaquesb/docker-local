@@ -1,0 +1,10 @@
+version: "3.1"
+services:
+    app-php56-fpm:
+      build: ../phpdocker/php-56-fpm
+      container_name: app-php56-fpm
+      restart: always
+      working_dir: /application
+      volumes:
+        - ../../:/application
+        - ../phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/5.6/fpm/conf.d/99-overrides.ini

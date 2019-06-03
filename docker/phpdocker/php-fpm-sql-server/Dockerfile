@@ -11,7 +11,7 @@ RUN ACCEPT_EULA=Y apt-get -y install msodbcsql17 mssql-tools
 RUN apt-get -y install unixodbc-dev
 
 RUN apt-get -y install gcc g++ make autoconf libc-dev pkg-config
-RUN apt-get -y install php-pear php-dev
+RUN apt-get -y install php-pear php7.2-dev
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
 
