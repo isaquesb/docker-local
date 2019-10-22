@@ -11,7 +11,7 @@ FROM phpdockerio/php56-fpm
 #ENV LC_ALL pt_BR.UTF-8
 
 RUN apt-get update \
-    && apt-get -y --no-install-recommends install git openssh-server curl supervisor php5-mysql php5-gd \
+    && apt-get -y --no-install-recommends install git openssh-server curl supervisor php5-mysql php5-pgsql php5-gd \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 WORKDIR "/application"
