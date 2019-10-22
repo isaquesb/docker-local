@@ -14,6 +14,6 @@ RUN apt-get update \
     && apt-get -y --no-install-recommends install git openssh-server curl supervisor php5-mysql php5-pgsql php5-gd \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
-COPY php-ini-overrides.ini /etc/php/5.6/fpm/conf.d/99-overrides.ini
+RUN sed -i "/short_open_tag = .*/c\short_open_tag = On" /etc/php5/fpm/php.ini
 
 WORKDIR "/application"
