@@ -1,0 +1,10 @@
+version: "3.1"
+services:
+    app-php74-fpm:
+      build: ../phpdocker/php-74-fpm
+      container_name: app-php74-fpm
+      restart: always
+      working_dir: /application
+      volumes:
+        - ../../:/application
+        - ../phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
