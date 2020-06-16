@@ -5,9 +5,4 @@ RUN apt-get update \
     && locale-gen pt_BR && locale-gen pt_BR.UTF-8 && dpkg-reconfigure locales && update-locale \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
-COPY entrypoint.sh /usr/bin/entrypoint.sh
-RUN ["chmod", "+x", "/usr/bin/entrypoint.sh"]
-
-CMD /usr/bin/entrypoint.sh
-
 WORKDIR "/application"
