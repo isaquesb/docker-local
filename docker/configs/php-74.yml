@@ -1,5 +1,6 @@
 version: "3.1"
 services:
+<<<<<<< HEAD
     app-webserver:
       image: nginx:alpine
       container_name: app-webserver
@@ -15,11 +16,17 @@ services:
        - "443:443"
 
     app-php-fpm:
+=======
+    app-php74-fpm:
+>>>>>>> ab0fcf218e80d374f68db3eafc052dffec22e1aa
       build: ../phpdocker/php-74-fpm
       container_name: app-php74-fpm
       restart: always
       working_dir: /application
       volumes:
         - ../../:/application
+<<<<<<< HEAD
         - ../../supervisor/:/etc/supervisor/conf.d
+=======
+>>>>>>> ab0fcf218e80d374f68db3eafc052dffec22e1aa
         - ../phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
